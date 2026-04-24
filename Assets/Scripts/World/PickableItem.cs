@@ -18,6 +18,7 @@ namespace AntonLed.StudentAdventure.World
         {
             if (collision.CompareTag("Player"))
             {
+                Debug.Log("Player in range");
                 _isPlayerInRange = true;
             }
         }
@@ -26,6 +27,7 @@ namespace AntonLed.StudentAdventure.World
         {
             if (collision.CompareTag("Player"))
             {
+                Debug.Log("Player out of range");
                 _isPlayerInRange = false;
             }
         }
