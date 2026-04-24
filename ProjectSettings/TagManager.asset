@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - Stairs
+  - PlayerSpawnPoint
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Player
+  - Water
+  - UI
+  - Interactable
+  - SurfaceTrigger
+  - ForbidPlacementItems
+  - PlacementGhost
+  - CameraConfiner
+  - Wall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 2989157385
+    locked: 0
+  - name: Wall
+    uniqueID: 1463917551
+    locked: 0
+  - name: InteriorCollision
+    uniqueID: 3606244367
+    locked: 0
+  - name: Player
+    uniqueID: 40585273
+    locked: 0
+  - name: InteriorBehind
+    uniqueID: 2218681593
+    locked: 0
+  - name: OnSurfaceItem
+    uniqueID: 4168051297
+    locked: 0
+  m_RenderingLayers:
+  - Default

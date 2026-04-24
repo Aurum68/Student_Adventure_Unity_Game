@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7e5588e0d90e74490fbdc56a082396, type: 3}
+  m_Name: Mop
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  name: Mop
+  description: Use mop to clean floor
+  icon: {fileID: -176931424, guid: 420b888e9b0ba1647983c892301df257, type: 3}
+  placementPrefab: {fileID: 6336355864123591410, guid: a0140ef34714d5446a91ecb20c8410e3, type: 3}
