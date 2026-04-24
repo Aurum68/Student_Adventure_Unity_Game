@@ -1,5 +1,6 @@
 ﻿using AntonLed.StudentAdventure.Inventory.Data;
 using AntonLed.StudentAdventure.UI;
+using AntonLed.StudentAdventure.World;
 using System.Collections.Generic;
 using UnityEngine;
 

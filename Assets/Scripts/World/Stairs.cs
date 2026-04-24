@@ -51,6 +51,7 @@ namespace AntonLed.StudentAdventure.World
 
             if (_playerRenderer == null)
             {
+                Debug.Log("Player Not foung");
                 return;
             }
 

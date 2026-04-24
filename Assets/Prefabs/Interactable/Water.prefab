@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: -1454619167188534022}
   - component: {fileID: 5115801681855683178}
   - component: {fileID: 1919035054541764359}
+  - component: {fileID: 8243323992610197691}
   - component: {fileID: 8844655601167007839}
   - component: {fileID: 5485108577428020250}
   m_Layer: 6
@@ -314,6 +315,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isPlaced: 0
+--- !u!114 &8243323992610197691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836974835258546037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bdad09be22c8d4aa3bc3dbb8067741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AntonLed.StudentAdventure.World.WorldIem
+  uniqueId: 
 --- !u!114 &8844655601167007839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +359,7 @@ MonoBehaviour:
   _invalidColor: {r: 1, g: 0, b: 0, a: 1}
   _finalLayer: Interactable
   isValidLocation: 0
+  itemData: {fileID: 11400000, guid: f418857208f853f41978c3da71b092d6, type: 2}
 --- !u!1 &6742289606580580485
 GameObject:
   m_ObjectHideFlags: 0

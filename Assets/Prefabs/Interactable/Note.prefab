@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 4434450577111824602}
   - component: {fileID: -2779140351115239220}
   - component: {fileID: -6282873020946242512}
+  - component: {fileID: 7636965714104554991}
   m_Layer: 6
   m_Name: Note
   m_TagString: Untagged
@@ -372,3 +373,17 @@ MonoBehaviour:
   _invalidColor: {r: 1, g: 0, b: 0, a: 1}
   _finalLayer: Interactable
   isValidLocation: 0
+  itemData: {fileID: 11400000, guid: 7d82a98fd4c6bd645af18e20b4415306, type: 2}
+--- !u!114 &7636965714104554991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4831346768142844762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bdad09be22c8d4aa3bc3dbb8067741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AntonLed.StudentAdventure.World.WorldIem
+  uniqueId: 

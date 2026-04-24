@@ -1,6 +1,7 @@
 ﻿using AntonLed.StudentAdventure.Inventory;
 using AntonLed.StudentAdventure.Inventory.Data;
 using AntonLed.StudentAdventure.UI;
+using AntonLed.StudentAdventure.World;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -63,6 +64,12 @@ namespace AntonLed.StudentAdventure.Placement
 
             _mouseIndicator = Instantiate(item.placementPrefab);
             _selectedItem = _mouseIndicator.GetComponent<PlaceableItem>();
+
+            _selectedItem.itemData = _itemData;
+
+            WorldItem worldItem = _mouseIndicator.GetComponent<WorldItem>();
+            worldItem.uniqueId = System.Guid.NewGuid().ToString();
+
             _selectedItem.InitializeAsGhost();
             Utils.Utils.SetLayerRecursive(_mouseIndicator, _placementGhostLayer);
         }

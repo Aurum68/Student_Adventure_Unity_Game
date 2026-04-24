@@ -1,4 +1,9 @@
+using AntonLed.StudentAdventure.Core.SceneMenegment;
+using AntonLed.StudentAdventure.Inventory.Data;
+using AntonLed.StudentAdventure.Placement.Data;
 using AntonLed.StudentAdventure.Utils;
+using AntonLed.StudentAdventure.World;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 namespace AntonLed.StudentAdventure.Placement
@@ -6,7 +11,6 @@ namespace AntonLed.StudentAdventure.Placement
     [RequireComponent (typeof(ItemLayerController), typeof(PlacementValidator), typeof(SpriteRenderer))]
     public class PlaceableItem : MonoBehaviour
     {
-        private ItemLayerController _layerController;
         private PlacementValidator _placementValidator;
         private SpriteRenderer _spriteRenderer;
 
@@ -21,6 +25,9 @@ namespace AntonLed.StudentAdventure.Placement
 
         public bool isValidLocation;
 
+        public ItemData itemData;
+        private WorldItem _worldItem;
+
         private enum PlacementState
         {
             Placed, Placing
@@ -30,9 +37,9 @@ namespace AntonLed.StudentAdventure.Placement
 
         private void Awake()
         {
-            _layerController = GetComponent<ItemLayerController>();
             _placementValidator = GetComponent<PlacementValidator>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
+            _worldItem = GetComponent<WorldItem>();
         }
 
         private void Update()
@@ -57,6 +64,17 @@ namespace AntonLed.StudentAdventure.Placement
             this.enabled = false;
             _currentState = PlacementState.Placed;
             Utils.Utils.SetLayerRecursive(gameObject, _finalLayer);
+
+            PlacedItemData placedItemData = new PlacedItemData(
+                    itemData,
+                    _worldItem.uniqueId,
+                    transform.position,
+                    transform.rotation
+                );
+
+            GameStateManager.instance.RegisterPlacedItem( placedItemData );
+
+            Debug.Log($"Предмет '{itemData.name}' с ID '{_worldItem.uniqueId}' сохранен!");
         }
 
         public void InitializeAsGhost()
