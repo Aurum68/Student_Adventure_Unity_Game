@@ -1,5 +1,5 @@
 ﻿using AntonLed.StudentAdventure.Core.Interactable;
-using AntonLed.StudentAdventure.Core.SceneMenegment;
+using AntonLed.StudentAdventure.Core.SceneManagement;
 using AntonLed.StudentAdventure.Inventory;
 using AntonLed.StudentAdventure.Inventory.Data;
 using AntonLed.StudentAdventure.Placement;

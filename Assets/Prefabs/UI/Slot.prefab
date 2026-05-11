@@ -86,7 +86,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 825425231258824618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4467f0919c2018c4785f991a1df0f083, type: 3}
+  m_Script: {fileID: 11500000, guid: 7aa713071447b9040ab23e148ce22a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlotUI
   itemIcon: {fileID: 6602733673855502173}

@@ -20,9 +20,9 @@ TagManager:
   - PlacementGhost
   - CameraConfiner
   - Wall
-  - 
-  - 
-  - 
+  - Furniture
+  - Ground
+  - Stairs
   - 
   - 
   - 

@@ -1,4 +1,4 @@
-﻿using AntonLed.StudentAdventure.Core.SceneMenegment;
+﻿using AntonLed.StudentAdventure.Core.SceneManagement;
 using System.Collections;
 using UnityEngine;
 

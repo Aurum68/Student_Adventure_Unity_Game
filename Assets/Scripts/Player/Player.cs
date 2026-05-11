@@ -1,5 +1,5 @@
 using AntonLed.StudentAdventure.Core.Interactable;
-using AntonLed.StudentAdventure.Core.SceneMenegment;
+using AntonLed.StudentAdventure.Core.SceneManagement;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -21,6 +21,8 @@ namespace AntonLed.StudentAdventure.Player
         private Animator _animator;
 
         private Vector2 _move;
+
+        private bool _controllerEnabled = true;
 
         public static event Action<Transform> OnPlayerSpawned;
 
@@ -55,15 +57,21 @@ namespace AntonLed.StudentAdventure.Player
         private void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManagement.onSceneLoadFinish += EnableController;
+            SceneManagement.onSceneLoadStart += DisableController;
         }
 
         private void OnDisable()
         {
-            SceneManager.sceneLoaded -= OnSceneLoaded;   
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManagement.onSceneLoadFinish -= EnableController;
+            SceneManagement.onSceneLoadStart -= DisableController;
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode loadMode)
         {
+            _rb.linearVelocity = Vector2.zero;
+
             SpawnPointId targetPointId = SceneTransitionData.targetSpawnPointId;
 
             Debug.LogWarning($"<color=orange>ÈÃÐÎÊ:</color> Èùó òî÷êó '{targetPointId}'.");
@@ -87,6 +95,23 @@ namespace AntonLed.StudentAdventure.Player
             SceneTransitionData.targetSpawnPointId = SpawnPointId.StartGame;
         }
 
+        private void EnableController()
+        {
+            _controllerEnabled = true;
+        }
+
+        private void DisableController()
+        {
+            _controllerEnabled = false;
+            _rb.linearVelocity = Vector2.zero;
+            _move = Vector2.zero;
+
+            if (_animator != null)
+            {
+                UpdateAnimatorIdleState();
+            }
+        }
+
         void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -108,33 +133,51 @@ namespace AntonLed.StudentAdventure.Player
 
         void FixedUpdate()
         {
-            _rb.linearVelocity = _move * _speed;
+            if (_controllerEnabled)
+            {
+                _rb.linearVelocity = _move * _speed;
+                return;
+            }
+
+            _rb.linearVelocity = Vector2.zero;
         }
 
-        public void Move(InputAction.CallbackContext context)
+        private void Update()
         {
-            _move = context.ReadValue<Vector2>();
+            if (_controllerEnabled == false) return;
 
             if (_move.sqrMagnitude > 0.1f)
             {
                 _animator.SetBool("isMoving", true);
-                _lastMoveDirection = _move;
+                _lastMoveDirection = _move.normalized;
+
+                _animator.SetFloat("inputX", _move.x);
+                _animator.SetFloat("inputY", _move.y);
             }
             else
             {
-                _animator.SetBool("isMoving", false);
-            }
-
-            _animator.SetFloat("inputX", _move.x);
-            _animator.SetFloat("inputY", _move.y);
-
-            if (context.canceled)
-            {
-                _animator.SetFloat("lastX", _lastMoveDirection.x);
-                _animator.SetFloat("lastY", _lastMoveDirection.y);
+                UpdateAnimatorIdleState();
             }
 
             UpdateColliderSize();
+        }
+
+        public void Move(InputAction.CallbackContext context)
+        {
+            if (!_controllerEnabled)
+            {
+                _move = Vector2.zero;
+                return;
+            }
+
+            _move = context.ReadValue<Vector2>();
+        }
+
+        private void UpdateAnimatorIdleState()
+        {
+            _animator.SetBool("isMoving", false);
+            _animator.SetFloat("lastX", _lastMoveDirection.x);
+            _animator.SetFloat("lastY", _lastMoveDirection.y);
         }
 
         private void UpdateColliderSize()
