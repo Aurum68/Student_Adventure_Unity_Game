@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickableItem
   ItemData: {fileID: 11400000, guid: 6351e1d776d2a1240851873317d8d799, type: 2}
+  pickupSound: {fileID: 8300000, guid: 8310c72d1340f6f44a3fdbf0ce6be176, type: 3}
 --- !u!50 &3811597458030848567
 Rigidbody2D:
   serializedVersion: 5

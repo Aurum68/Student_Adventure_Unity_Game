@@ -266,6 +266,8 @@ MonoBehaviour:
   searchRadius: 1
   patrolDuration: 60
   stalkingDuration: 60
+  mainMusic: {fileID: 8300000, guid: 02a205400bf294f42b50e81197bda0e2, type: 3}
+  stalkingMusic: {fileID: 8300000, guid: d8b00198971989841861ac5d768243a7, type: 3}
 --- !u!1 &6681151047281988319
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using AntonLed.StudentAdventure.Core.Audio;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,13 +18,14 @@ namespace AntonLed.StudentAdventure.UI
         public static WarningUIManager instance;
 
         [Header("Общие UI Элементы")]
-        public TextMeshProUGUI fullscreenText; // Текст на этой панели
-        public Image persistentIcon;   // Иконка в углу
+        public TextMeshProUGUI fullscreenText;
+        public Image persistentIcon;
 
-        // Можно добавить сюда и другие элементы, например, для разных иконок
         [Header("Спрайты для иконок")]
-        public Sprite stalkingSprite; // Спрайт "!"
-                                      // public Sprite otherSprite; // Другие спрайты по необходимости
+        public Sprite stalkingSprite;
+
+        public AudioClip stalkingSound;
+        public AudioClip caughtPlayerSound;
 
         private void Awake()
         {
@@ -42,9 +44,11 @@ namespace AntonLed.StudentAdventure.UI
             {
                 case WarningType.CleanerStalking:
                     text = "БЕРЕГИСЬ УБОРЩИЦУ!";
+                    AudioManager.instance.PlaySound(stalkingSound);
                     break;
                 case WarningType.CleanerCaughtPlayer:
                     text = "Вас поймали";
+                    AudioManager.instance.PlaySound(caughtPlayerSound);
                     break;
                 case WarningType.None:
                     return;

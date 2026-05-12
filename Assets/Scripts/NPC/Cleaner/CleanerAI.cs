@@ -1,4 +1,5 @@
-﻿using AntonLed.StudentAdventure.UI;
+﻿using AntonLed.StudentAdventure.Core.Audio;
+using AntonLed.StudentAdventure.UI;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -24,6 +25,12 @@ public class CleanerAI : MonoBehaviour
     private NavMeshAgent agent;
     private Rigidbody2D rb;
     private float currentStateTimer; // Наш таймер-счетчик
+
+    [SerializeField]
+    private AudioClip mainMusic;
+
+    [SerializeField]
+    private AudioClip stalkingMusic;
 
     // --- МАШИНА СОСТОЯНИЙ ---
     public enum AIState
@@ -126,12 +133,14 @@ public class CleanerAI : MonoBehaviour
             case AIState.Patrolling:
                 Debug.Log("Начинаю патрулирование на " + patrolDuration + " секунд.");
                 WarningUIManager.instance.ShowNotification(WarningType.None);
+                MusicManager.instance.SetMusic(mainMusic);
                 currentStateTimer = patrolDuration;
                 GoToWanderPoint();
                 break;
             case AIState.Stalking:
                 Debug.Log("Время преследовать! Начинаю охоту на " + stalkingDuration + " секунд.");
                 WarningUIManager.instance.ShowNotification(WarningType.CleanerStalking);
+                MusicManager.instance.SetMusic(stalkingMusic);
                 currentStateTimer = stalkingDuration;
                 break;
         }

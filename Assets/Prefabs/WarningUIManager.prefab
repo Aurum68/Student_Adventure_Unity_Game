@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8af4cd67cdb5c46b0f1e9cf65b383b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AntonLed.StudentAdventure.UI.WarningUIManager
-  fullscreenPanel: {fileID: 0}
   fullscreenText: {fileID: 0}
   persistentIcon: {fileID: 0}
   stalkingSprite: {fileID: 3119020103343890530, guid: 4e125424c7c97f242a982521314d6607, type: 3}
+  stalkingSound: {fileID: 8300000, guid: 41bbee10fb3f9754cb6d8f68866345cb, type: 3}
+  caughtPlayerSound: {fileID: 8300000, guid: 5b8dd2e1344ffbe41bdb669c48f1b0e6, type: 3}

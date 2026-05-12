@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickableItem
   ItemData: {fileID: 11400000, guid: f418857208f853f41978c3da71b092d6, type: 2}
+  pickupSound: {fileID: 8300000, guid: 8310c72d1340f6f44a3fdbf0ce6be176, type: 3}
 --- !u!114 &-1454619167188534022
 MonoBehaviour:
   m_ObjectHideFlags: 0

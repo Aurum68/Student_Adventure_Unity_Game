@@ -19651,6 +19651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Navigation
       objectReference: {fileID: 0}
+    - target: {fileID: 8789352315414396033, guid: f7c903a022b1dea44a112ef57665fb94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

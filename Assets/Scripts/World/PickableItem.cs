@@ -1,4 +1,5 @@
-﻿using AntonLed.StudentAdventure.Core.Interactable;
+﻿using AntonLed.StudentAdventure.Core.Audio;
+using AntonLed.StudentAdventure.Core.Interactable;
 using AntonLed.StudentAdventure.Core.SceneManagement;
 using AntonLed.StudentAdventure.Inventory;
 using AntonLed.StudentAdventure.Inventory.Data;
@@ -12,6 +13,9 @@ namespace AntonLed.StudentAdventure.World
     public class PickableItem : MonoBehaviour, IInteractable
     {
         public ItemData ItemData;
+
+        [SerializeField]
+        private AudioClip pickupSound;
 
         private bool _isPlayerInRange = false;
         private WorldItem _worldIem;
@@ -48,8 +52,10 @@ namespace AntonLed.StudentAdventure.World
 
             if (_isPlayerInRange)
             {
+                AudioManager.instance.PlaySound(pickupSound);
                 GameStateManager.instance.RegisterCollectedItem(_worldIem.uniqueId);
                 InventoryManager.instance.AddItem(ItemData);
+                
                 Destroy(gameObject);
             }
             else
